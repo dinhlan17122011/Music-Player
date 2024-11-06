@@ -1,0 +1,280 @@
+@use './base';
+  
+  .player {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+
+    & .icon-pause {
+      display: none;
+    }
+    
+    &.playing .icon-pause {
+      display: inline-block;
+    }
+    
+    &.playing .icon-play {
+      display: none;
+    }
+    
+  }
+  
+
+  .dashboard {
+    padding: 16px 16px 14px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 480px;
+    border-bottom: 1px solid #ebebeb;
+    z-index: 999;
+  }
+  
+  /* HEADER */
+  header {
+    text-align: center;
+    margin-bottom: 10px;
+
+    & h4 {
+      color: var(--primary-color);
+      font-size: 12px;
+    }
+    
+    & h2 {
+      color: var(--text-color);
+      font-size: 20px;
+    }
+  }
+  
+  
+  
+  /* CD */
+  .cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+  }
+  
+  .cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    margin: auto;
+  }
+  
+  /* CONTROL */
+  .control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 0 8px 0;
+
+    & .btn {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;    
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      flex: 0 0 auto; 
+    }
+  
+    & .btn{
+      &:not(.btn-toggle-play):active {
+        background: rgba($color: #000000, $alpha: 0.05);
+      }
+  
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  
+  
+    & .btn.active {
+      color: var(--primary-color);
+    }
+    
+    & .btn-toggle-play {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      font-size: 24px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+    }
+
+  }
+  
+  
+  
+  .progress {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+
+    
+    &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    cursor: pointer;
+  }
+  
+  }
+  
+  /* PLAYLIST */
+  .playlist {
+    position: relative;
+    margin-top: 370px;
+    padding: 12px 20px;
+  }
+  
+  .song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    user-select: none;
+
+    
+    & .option {
+      margin-right: 20px;
+      padding: 16px 8px;
+      color: #999;
+      font-size: 18px;
+    }
+  
+
+    &.active {
+      background-color: var(--primary-color) ;
+    }
+    
+    &:active {
+      opacity: 0.8;
+    }
+    
+    &.active .option,
+    &.active .author,
+    &.active .title {
+      color: #fff !important;
+    }
+
+    & .option__menu {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    & .option.active {
+      position: relative;
+    }
+
+    & .option.active .option__menu {
+
+      position: absolute;
+      display: flex;
+      visibility: visible;
+      opacity: 1;
+    
+      background: #fff;
+      color: #333;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      right: 4px;
+      top: 32px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+
+      li {
+        padding: 12px 14px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      
+      }
+
+    }
+    
+    & .thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-size: cover;
+      margin: 0 8px;
+    }
+
+    & .body {
+      flex: 1;
+      padding: 0 16px;
+
+        & .title {
+          font-size: 18px;
+          color: var(--text-color);
+        }
+
+        & .author {
+          margin-top: 8px;
+          font-size: 12px;
+          color: #999;
+        }
+
+    }
+  }
+
+  .add_Song {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    bottom: 10px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    z-index: 999;
+    background: var(--primary-color);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    user-select: none;
+    color:#eee;
+    font-weight: bold;
+
+    font-size:20px;
+
+   .icon {
+      font-size: inherit;
+  }
+    
+    
+  }
+
+
+  
+  
+ 
+  
+
+  
+  

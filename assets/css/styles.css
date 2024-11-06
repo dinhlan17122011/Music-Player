@@ -1,0 +1,303 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --primary-color: #ec1f55;
+  --text-color: #333;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Lora", serif;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.player {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.player .icon-pause {
+  display: none;
+}
+.player.playing .icon-pause {
+  display: inline-block;
+}
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 16px 16px 14px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  border-bottom: 1px solid #ebebeb;
+  z-index: 999;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+header h4 {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+header h2 {
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+/* CD */
+.cd {
+  display: flex;
+  margin: auto;
+  width: 200px;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}
+
+/* CONTROL */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+.control .btn {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.control .btn:not(.btn-toggle-play):active {
+  background: rgba(0, 0, 0, 0.05);
+}
+.control .btn:active {
+  opacity: 0.7;
+}
+.control .btn.active {
+  color: var(--primary-color);
+}
+.control .btn-toggle-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.progress {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* PLAYLIST */
+.playlist {
+  position: relative;
+  margin-top: 370px;
+  padding: 12px 20px;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  user-select: none;
+}
+.song .option {
+  margin-right: 20px;
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+}
+.song.active {
+  background-color: var(--primary-color);
+}
+.song:active {
+  opacity: 0.8;
+}
+.song.active .option, .song.active .author, .song.active .title {
+  color: #fff !important;
+}
+.song .option__menu {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.song .option.active {
+  position: relative;
+}
+.song .option.active .option__menu {
+  position: absolute;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  background: #fff;
+  color: #333;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  right: 4px;
+  top: 32px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+.song .option.active .option__menu li {
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.song .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+}
+.song .body .title {
+  font-size: 18px;
+  color: var(--text-color);
+}
+.song .body .author {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #999;
+}
+
+.add_Song {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 10px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  z-index: 999;
+  background: var(--primary-color);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  user-select: none;
+  color: #eee;
+  font-weight: bold;
+  font-size: 20px;
+}
+.add_Song .icon {
+  font-size: inherit;
+}
+
+/*# sourceMappingURL=styles.css.map */

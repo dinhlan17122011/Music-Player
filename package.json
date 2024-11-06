@@ -1,0 +1,29 @@
+{
+  "name": "listentomusic",
+  "version": "1.0.0",
+  "description": "nghe nhạc ",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server database/db.json",
+    "sass": "sass scss:assets/css -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TranTruong753/listen-to-music.git"
+  },
+  "keywords": [
+    "nghe",
+    "nhac"
+  ],
+  "author": "Trần Quang Trường",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TranTruong753/listen-to-music/issues"
+  },
+  "homepage": "https://github.com/TranTruong753/listen-to-music#readme",
+  "dependencies": {
+    "json-server": "^0.17.4",
+    "sass": "^1.77.8"
+  }
+}
